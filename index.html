@@ -3,24 +3,99 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bolu İnşaat | Müteahhitlik Hizmetleri</title>
+    <title>Bolu İnşaat & Müteahhitlik | Güvenli Yapılar</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        body { font-family: sans-serif; margin: 0; text-align: center; }
-        header { background: #2c3e50; color: white; padding: 50px; }
-        .contact-box { background: #f4f4f4; padding: 20px; margin: 20px; border-radius: 10px; }
-        .btn { display: inline-block; padding: 15px 25px; background: #e67e22; color: white; text-decoration: none; border-radius: 5px; font-weight: bold; }
+        :root { --main-color: #e67e22; --dark-color: #2c3e50; --light-bg: #f9f9f9; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; color: #333; line-height: 1.6; }
+        
+        /* Navbar */
+        nav { background: white; padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 5px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1000; }
+        .logo { font-weight: bold; font-size: 24px; color: var(--dark-color); }
+        .logo span { color: var(--main-color); }
+
+        /* Hero Alanı */
+        header { background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1541888946425-d81bb19480c5?auto=format&fit=crop&w=1350&q=80'); 
+                 background-size: cover; background-position: center; height: 60vh; display: flex; flex-direction: column; justify-content: center; align-items: center; color: white; text-align: center; padding: 0 20px; }
+        header h1 { font-size: 3rem; margin-bottom: 10px; }
+
+        /* Ana Bölümler */
+        section { padding: 60px 10%; text-align: center; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 30px; }
+        .card { padding: 30px; background: var(--light-bg); border-radius: 8px; border-bottom: 4px solid var(--main-color); }
+        
+        /* Form ve İletişim */
+        .contact-container { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; text-align: left; }
+        input, textarea { width: 100%; padding: 12px; margin: 10px 0; border: 1px solid #ccc; border-radius: 5px; }
+        .btn { background: var(--main-color); color: white; border: none; padding: 15px 30px; cursor: pointer; font-weight: bold; border-radius: 5px; width: 100%; }
+        
+        /* Harita */
+        .map-container iframe { width: 100%; border-radius: 8px; height: 300px; }
+
+        @media (max-width: 768px) { .contact-container { grid-template-columns: 1fr; } header h1 { font-size: 2rem; } }
     </style>
 </head>
 <body>
+
+    <nav>
+        <div class="logo">BOLU<span> İNŞAAT</span></div>
+        <div>
+            <a href="tel:+905XXXXXXXXX" style="text-decoration: none; color: var(--main-color); font-weight: bold;"><i class="fas fa-phone"></i> Hemen Ara</a>
+        </div>
+    </nav>
+
     <header>
-        <h1>Bolu Müteahhitlik & İnşaat</h1>
-        <p>Güvenli Yapılar, Sağlam Gelecekler</p>
+        <h1>Profesyonel Müteahhitlik Hizmetleri</h1>
+        <p>Bolu'nun her noktasında sağlam, modern ve estetik projeler üretiyoruz.</p>
     </header>
-    
-    <section class="contact-box">
-        <h2>Hızlı İletişim</h2>
-        <p>Bolu Merkez Ofisimizle iletişime geçin.</p>
-        <a href="tel:+905000000000" class="btn">Hemen Ara: 05XX XXX XX XX</a>
+
+    <section id="hizmetler">
+        <h2>Neler Yapıyoruz?</h2>
+        <div class="grid">
+            <div class="card">
+                <i class="fas fa-hard-hat fa-3x" style="color: var(--main-color);"></i>
+                <h3>Müteahhitlik</h3>
+                <p>Kat karşılığı veya anahtar teslim inşaat projeleriniz için profesyonel çözümler.</p>
+            </div>
+            <div class="card">
+                <i class="fas fa-building fa-3x" style="color: var(--main-color);"></i>
+                <h3>Konut Projeleri</h3>
+                <p>Modern mimari ve deprem yönetmeliğine tam uygun yaşam alanları.</p>
+            </div>
+            <div class="card">
+                <i class="fas fa-map-marked-alt fa-3x" style="color: var(--main-color);"></i>
+                <h3>Arsa Değerlendirme</h3>
+                <p>Bolu Merkez ve çevresindeki arsalarınız için en karlı yatırım planlama.</p>
+            </div>
+        </div>
     </section>
+
+    <section id="iletisim" style="background: #fff;">
+        <div class="contact-container">
+            <div>
+                <h2>Bize Mesaj Gönderin</h2>
+                <form action="https://formspree.io/f/senin_form_id_buraya" method="POST">
+                    <input type="text" name="ad_soyad" placeholder="Adınız Soyadınız" required>
+                    <input type="email" name="email" placeholder="E-posta Adresiniz" required>
+                    <textarea name="mesaj" rows="5" placeholder="Projeniz hakkında detay verin..." required></textarea>
+                    <button type="submit" class="btn">GÖNDER</button>
+                </form>
+            </div>
+
+            <div>
+                <h2>İletişim Bilgileri</h2>
+                <p><i class="fas fa-map-marker-alt"></i> Bolu Merkez, Bolu, Türkiye</p>
+                <p><i class="fas fa-envelope"></i> yeni-mailin@gmail.com</p>
+                <div class="map-container">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d48472.93245465249!2d31.5786526!3d40.7392651!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4083029f604859f1%3A0xc341885f0c3f0c3f!2sBolu%2C%20Bolu%20Merkez%2FBolu!5e0!3m2!1str!2str!4v1700000000000" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer style="background: var(--dark-color); color: white; padding: 20px; text-align: center;">
+        <p>&copy; 2026 Bolu İnşaat - Tüm Hakları Saklıdır.</p>
+    </footer>
+
 </body>
 </html>
